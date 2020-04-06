@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-header">
+    Pesquisar Sistema
+  </div>
+  <div class="card-body">
+    <app-pesquisar-sistema></app-pesquisar-sistema>
+
+    <fieldset class="border p-2 margin_top20" *ngIf="sistemas">
+      <legend class="w-auto legenda">Resultado da Consulta</legend>
+      <table class="table table-striped top20" *ngIf="sistemas">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Sigla</th>
+            <th scope="col">E-mail de atendimento</th>
+            <th scope="col">URL</th>
+            <th scope="col">Status</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sistema of sistemas.data; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{sistema.descricao}}</td>
+            <td>{{sistema.sigla}}</td>
+            <td>{{sistema.email}}</td>
+            <td>{{sistema.url}}</td>
+            <td>{{sistema.status == 1 ? 'Ativo':'Cancelado'}}</td>
+            <td>
+              <a [routerLink]="['/sistema/', sistema.id, 'alterar']">Alterar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <app-paginacao *ngIf="sistemas" [primeiraPagina]="primeiraPagina" [currentPagina]="sistemas.currentPage"
+        [lastPagina]="sistemas.lastPage" [totalPaginas]="4" (changePaginas)="carregarPagina($event)"></app-paginacao>
+    </fieldset>
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn btn-link" (click)="pesquisar();">Pesquisar<i class="fas fa-search"></i></button>
+    <button class="btn btn-link" (click)="limpar()">Limpar <i class="fas fa-times"></i></button>
+    <button class="btn btn-link" [routerLink]="['/sistema/inserir']">Novo Sistema <i class="fas fa-plus"></i></button>
+  </div>
+</div>

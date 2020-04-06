@@ -1,0 +1,85 @@
+<div class="card">
+  <div class="card-header">
+    Manter Sistema
+
+    <span class="float-right destaque_vermelho">* Campo Obrigatório</span>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="formulario">
+      <fieldset class="border p-2">
+        <legend class="w-auto legenda">Dados do Sistema</legend>
+
+        <div class="form-group row">
+          <label for="descricao" class="col-sm-4 col-form-label bordaBottom">Descrição <span
+              class="destaque_vermelho">*</span></label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="descricao" formControlName="descricao">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="sigla" class="col-sm-4 col-form-label bordaBottom">Sigla <span
+              class="destaque_vermelho">*</span></label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="sigla" formControlName="sigla">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="email" class="col-sm-4 col-form-label bordaBottom">E-mail de atendimento do sistema</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="email" formControlName="email">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="url" class="col-sm-4 col-form-label bordaBottom">URL</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="url" formControlName="url">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="border p-2 margin_top20">
+        <legend class="w-auto legenda">Controle do Sistema</legend>
+
+        <div class="form-group row">
+          <label for="status" class="col-sm-4 col-form-label bordaBottom">Status <span
+              class="destaque_vermelho">*</span></label>
+          <div class="col-sm-8">
+            <select id="status" class="form-control" formControlName="status">
+              <option value="1">ATIVO</option>
+              <option value="0">CANCELADO</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="usuario" class="col-sm-4 col-form-label bordaBottom">Usuário responsável pela última alteração</label>
+          <div class="col-sm-8">
+            <input type="text" disabled class="form-control" id="usuario" formControlName="usuario">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="data" class="col-sm-4 col-form-label bordaBottom">Data da última alteração</label>
+          <div class="col-sm-8">
+            <input type="text" disabled class="form-control" id="data" formControlName="data">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="justificativa" class="col-sm-4 col-form-label bordaBottom">Justificativa da última alteração</label>
+          <div class="col-sm-8">
+            <textarea disabled class="form-control" id="justificativa" formControlName="justificativa"></textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="justificativaAlteracao" class="col-sm-4 col-form-label bordaBottom">Nova justificativa alteração
+            <span class="destaque_vermelho">*</span></label>
+          <div class="col-sm-8">
+            <textarea class="form-control" id="justificativaAlteracao" formControlName="justificativaAlteracao"></textarea>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-link float-left" [routerLink]="['/sistema']">Voltar</button>
+    <button class="btn btn-link float-right" (click)="salvar()">Salvar</button>
+  </div>
+</div>

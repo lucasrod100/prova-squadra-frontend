@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+.destaque_vermelho{
+  color: red;
+}
+
+.margin_top20{
+  margin-top: 20px;
+}
+
+.legenda{
+  color: green;
+  font-size: 16px;
+}
